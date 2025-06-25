@@ -7,6 +7,35 @@ body {
     background-color: #f4f4f4;
 }
 
+#location-container {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 2rem; 
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+}
+
+#map-frame {
+    width: 600px;
+    height: 450px;
+    border-radius: 5px;
+}
+
+#qr-code-wrapper {
+    text-align: center;
+    width: 150px;
+}
+
+#qr-code {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     text-align: center;
     background: #fff;
