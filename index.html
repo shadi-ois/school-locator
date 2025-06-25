@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" direction="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محدد مواقع مدارس عطاء التعليمية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>محدد مواقع مدارس عطاء التعليمية</h1>
+        <p>رجاء اختيار المدرسة من القائمة ادناه</p>
+        <select id="school-select">
+            <option value="">-- اختر مدرسة --</option>
+        </select>
+        <div id="location-container">
+            <iframe id="map-frame" src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <img id="qr-code" src="" alt="QR Code">
+        </div>
+    </div>
+    <script src="qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
