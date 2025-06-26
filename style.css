@@ -1,61 +1,76 @@
 body {
-    font-family: sans-serif;
+    font-family: "Tajawal", sans-serif;
+    color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
+    /* min-height: 100vh; */
+    background: linear-gradient(-45deg, #5f2a55, #32347a);
+    background-size: 1000% 1000%;
+    animation: gradientAnimation 150s ease infinite;
 }
 
-#location-container {
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 2rem; 
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background-color: #f9f9f9; 
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#schoolName {
+    color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#qrcode {
     border-radius: 8px;
-}
-
-#map-frame {
-    width: 600px;
-    height: 450px;
-    border-radius: 5px;
-}
-
-#qr-code-wrapper {
-    text-align: center;
-    width: 150px;
-}
-
-#qr-code {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow:
+        0 13px 27px -5px #32325d40,
+        0 8px 16px -8px #0000004d,
+        0 -6px 16px -6px #00000008;
 }
 
 .container {
-    text-align: center;
     background: #fff;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-#school-select {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+@font-face {
+    font-family: "Tajawal";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(Tajawal-Regular.ttf) format("truetype");
+    unicode-range:
+        U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+        U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+        U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4,
+        U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24,
+        U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42,
+        U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54,
+        U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64,
+        U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E,
+        U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9,
+        U+1EEAB-1EEBB, U+1EEF0-1EEF1;
 }
 
-#location-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-#map-frame {
-    border-radius: 5px;
+.fade-animate {
+    animation: fadeInOut 1s ease-in-out;
 }
