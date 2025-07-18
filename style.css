@@ -23,6 +23,10 @@ body {
     }
 }
 
+.working-hours-container-hide {
+    display: none;
+}
+
 #schoolName {
     color: #fff;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
