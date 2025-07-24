@@ -27,6 +27,26 @@ body {
     display: none;
 }
 
+#working-hours-container {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+#working-hours-content p {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+#working-hours-content p strong {
+    color: #ffd700;
+}
+
+
+
 #schoolName {
     color: #fff;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
