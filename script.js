@@ -25,19 +25,19 @@ function getWorkingHours(schoolText) {
         // These 4 schools only have morning and evening shifts (no Saturday)
         return `
             <p><strong>الفترة الصباحية:</strong></p>
-            <p>من 8:00 صباحا حتى 2:00 مساء</p>
+            <p>من الثامنة صباحا حتى الثانية مساء</p>
             <p><strong>الفترة المسائية:</strong></p>
-            <p>من 4:00 مساء حتى 7:00 مساء</p>
+            <p>من الرابعة مساء حتى السابعة مساء</p>
         `;
     } else {
         // All other schools have morning, evening, AND Saturday hours
         return `
             <p><strong>الفترة الصباحية:</strong></p>
-            <p>من 8:00 صباحا حتى 2:00 مساء</p>
+            <p>من الثامنة صباحا حتى الثانية مساء</p>
             <p><strong>الفترة المسائية:</strong></p>
-            <p>من 4:00 مساء حتى 7:00 مساء</p>
+            <p>من الرابعة مساء حتى السابعة مساء</p>
             <p><strong>يوم السبت:</strong></p>
-            <p>من 10:00 صباحا حتى 6:00 مساء</p>
+            <p>من العاشرة صباحا حتى السادسة مساء</p>
         `;
     }
 }
