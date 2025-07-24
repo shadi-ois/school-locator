@@ -1,26 +1,80 @@
-const school = document.getElementById("school");
-const button = document.getElementById("button");
-const image = document.getElementById("qrcode");
-const url = document.getElementById("schoollocationurl");
-const schoolName = document.getElementById("schoolName");
-const buttonContainer = document.getElementById("button-container");
+const school = document.getElementById('school');
+const button = document.getElementById('button');
+const workingHours = document.getElementById('working-hours-container');
+const workingHoursContent = document.getElementById('working-hours-content');
+const image = document.getElementById('qrcode');
+const url = document.getElementById('schoollocationurl');
+const schoolName = document.getElementById('schoolName');
+const buttonContainer = document.getElementById('button-container');
 
-// Add a new event listener for the school dropdown
-school.addEventListener("change", () => {
-  QRCode.toDataURL(school.value).then((data) => {
-    image.src = data;
-    url.href = school.value;
-    schoolName.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24" fill="white">
-    <path d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 12 L 19 12 L 19 19 L 5 19 L 5 5 L 12 5 L 12 3 L 5 3 z M 14 3 L 14 5 L 17.585938 5 L 8.2929688 14.292969 L 9.7070312 15.707031 L 19 6.4140625 L 19 10 L 21 10 L 21 3 L 14 3 z"></path>
-    </svg> فتح في خرائط جوجل`;
-    workingHours.classList.remove("working-hours-container-hide");
-    void workingHours.offsetWidth;
-    buttonContainer.classList.add("button");
-    url.classList.remove("fade-animate");
-    void url.offsetWidth;
-    url.classList.add("fade-animate");
-    image.classList.remove("fade-animate");
-    void image.offsetWidth;
-    image.classList.add("fade-animate");
-  });
+// Define schools that DON'T have Saturday hours (exceptions)
+const schoolsWithoutSaturday = [
+    'مدرسة الياسمين العالمية',
+    'مدرسة باكسوود',
+    'مدارس الشرق الأوسط الحديثة',
+    'مدارس الشرق الأوسط الجديدة'
+];
+
+// Function to get working hours based on school name
+function getWorkingHours(schoolText) {
+    const hasNoSaturday = schoolsWithoutSaturday.some(exceptionSchool => 
+        schoolText.includes(exceptionSchool)
+    );
+    
+    if (hasNoSaturday) {
+        // These 4 schools only have morning and evening shifts (no Saturday)
+        return `
+            <p><strong>الفترة الصباحية:</strong></p>
+            <p>من 8:00 صباحا حتى 2:00 مساء</p>
+            <p><strong>الفترة المسائية:</strong></p>
+            <p>من 4:00 مساء حتى 7:00 مساء</p>
+        `;
+    } else {
+        // All other schools have morning, evening, AND Saturday hours
+        return `
+            <p><strong>الفترة الصباحية:</strong></p>
+            <p>من 8:00 صباحا حتى 2:00 مساء</p>
+            <p><strong>الفترة المسائية:</strong></p>
+            <p>من 4:00 مساء حتى 7:00 مساء</p>
+            <p><strong>يوم السبت:</strong></p>
+            <p>من 10:00 صباحا حتى 6:00 مساء</p>
+        `;
+    }
+}
+
+school.addEventListener('change', function() {
+    if (school.value) {
+        // Generate QR code
+        QRCode.toDataURL(school.value, function (err, url) {
+            if (err) throw err;
+            image.src = url;
+        });
+        
+        // Update school location URL
+        url.href = school.value;
+        
+        // Update school name
+        schoolName.innerHTML = 'اضغط هنا لفتح الموقع في خرائط جوجل';
+        
+        // Get the selected school text
+        const selectedOption = school.options[school.selectedIndex];
+        const schoolText = selectedOption.text;
+        
+        // Update working hours based on school
+        workingHoursContent.innerHTML = getWorkingHours(schoolText);
+        
+        // Show elements with animation
+        workingHours.classList.remove('working-hours-container-hide');
+        workingHours.classList.add('fade-animate');
+        
+        url.classList.add('fade-animate');
+        image.classList.add('fade-animate');
+        buttonContainer.classList.add('fade-animate');
+        
+        // Force reflow for animation
+        void workingHours.offsetWidth;
+        void url.offsetWidth;
+        void image.offsetWidth;
+        void buttonContainer.offsetWidth;
+    }
 });
