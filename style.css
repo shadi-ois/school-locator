@@ -156,3 +156,45 @@ Aesthetics
 .fade-animate {
     animation: fadeInOut 1s ease-in-out;
 }
+
+/* Header Image Styles */
+#header-link {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#header-link:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+#header-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow:
+        0 13px 27px -5px rgba(50, 50, 93, 0.25),
+        0 8px 16px -8px rgba(0, 0, 0, 0.3),
+        0 -6px 16px -6px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.3s ease;
+}
+
+#header-link:hover #header-image {
+    box-shadow:
+        0 20px 40px -5px rgba(50, 50, 93, 0.35),
+        0 12px 24px -8px rgba(0, 0, 0, 0.4),
+        0 -8px 20px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive design for header image */
+@media (max-width: 768px) {
+    #header-image {
+        border-radius: 8px;
+    }
+
+    #header-link {
+        margin-bottom: 15px;
+    }
+}
