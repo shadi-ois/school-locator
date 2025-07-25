@@ -171,8 +171,10 @@ Aesthetics
 }
 
 #header-image {
-    max-width: 100%;
+    max-width: 400px;
+    width: 100%;
     height: auto;
+    object-fit: contain;
     border-radius: 12px;
     box-shadow:
         0 13px 27px -5px rgba(50, 50, 93, 0.25),
@@ -191,10 +193,23 @@ Aesthetics
 /* Responsive design for header image */
 @media (max-width: 768px) {
     #header-image {
+        max-width: 300px;
         border-radius: 8px;
     }
 
     #header-link {
         margin-bottom: 15px;
     }
+}
+
+@media (max-width: 480px) {
+    #header-image {
+        max-width: 250px;
+        border-radius: 6px;
+    }
+
+    #header-link {
+        margin-bottom: 10px;
+    }
+}
 }
